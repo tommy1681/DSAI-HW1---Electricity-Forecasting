@@ -3,12 +3,8 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_squared_error, r2_score
 from data_obj import data_obj
-#units,表示每个时间步的输出维度，比如输入的每个时间步是一个3维向量，则输出是一个6维向量
-#return_sequences，控制是否输出全部时间步的隐藏层（h_t）
-#return_state，控制是否输出最后一个时间步的状态(c_t)
-#stateful,控制记忆状态是否在不同样本间保持，默认False,不保持
-#recurrent_activation:门函数的激活函数（sigmoid/hard_softmax）
-#activation：输出函数(隐藏状态)的激活函数/内部状态函数的激活函数,常用tanh,比如隐藏层输出 h_t = Z_o * tanh * c_t，内部函数的激活函数也是用tanh
+
+
 class Model:
     def __init__(self):
         a=1
