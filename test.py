@@ -27,7 +27,7 @@ class Model:
         x,y =self.unison_shuffled_copies(x,y)
         x,y,test_x,test_y = self.cut(x,y)
         model =self.build(x)
-        model.fit(x,y,validation_data = [test_x,test_y] ,epochs=400)
+        model.fit(x,y,validation_data = [test_x,test_y] ,epochs=700)
         model.save('path_to_saved_model', save_format='tf')
         print("模型儲存完畢")
 
@@ -56,7 +56,7 @@ class Model:
 
         
         for i in range(0,h):
-            if i + 29 > 762-1 :
+            if i + 29 > h-1 :
                 break
             batch = []
             #前21天
@@ -64,9 +64,9 @@ class Model:
 
                 ans = []
                 for key in data:
-                    if key != "備轉容量(MW)":
-                        a = data[key][i+j]
-                        ans.append(a)
+                    
+                    a = data[key][i+j]
+                    ans.append(a)
 
                 batch.append(ans)
             x.append(batch)
@@ -101,9 +101,9 @@ class Model:
 
                 ans = []
                 for key in data:
-                    if key != "備轉容量(MW)":
-                        a = data[key][j]
-                        ans.append(a)
+                    
+                    a = data[key][j]
+                    ans.append(a)
 
                 batch.append(ans)
         x = [batch]
@@ -135,4 +135,3 @@ class Model:
         predict = predict.astype('int32')
         return data_obj(predict)
         
-
